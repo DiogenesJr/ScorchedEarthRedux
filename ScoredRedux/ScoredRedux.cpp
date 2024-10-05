@@ -24,11 +24,26 @@
 #include "raylib.h"
 #include "GameEngine.h"
 
-typedef enum GameScreen {LOGO = 0, TITLE, GAMEPLAY, ENDING} GameScreen;
+#define DEBUG_MODE true
+
+typedef enum GameScreen {LOGO = 0, TITLE, GAMEMENU,GAMEPLAY, ENDING} GameScreen;
 int screenWidth, screenHeight;
 int frameCounter = 0;
 bool isFullScreen;
 GameScreen currentScreen;
+
+//------------------------------------------------------------------------------------
+// Debug information starting with screen dimensions and mouse cursor position
+//------------------------------------------------------------------------------------
+void displayDebugInformation() {
+    Vector2 mousePosition = GetMousePosition();
+    string mouseXPosition = to_string(mousePosition.x);
+    string mouseYPosition = to_string(mousePosition.y);
+    string mousePositionString = "(" + mouseXPosition + "," + mouseYPosition + ")";
+    string screenDimensionStrings = "(" + to_string(screenWidth) + "," + to_string(screenHeight) + ")";
+    DrawText(mousePositionString.data(), 20, 20, 40, DARKBLUE);
+    DrawText(screenDimensionStrings.data(), 20, 60, 40, DARKBLUE);
+}
 
 //------------------------------------------------------------------------------------
 // Set window parameters using values retrieve from the game engine object
@@ -40,50 +55,15 @@ void SetWindowSize(string* screenTitle) {
 
     InitWindow(screenWidth, screenHeight, screenTitle->data());
     if (isFullScreen) {
-        SetWindowSize(GetMonitorWidth(display), GetMonitorHeight(display));
+        screenWidth = GetMonitorWidth(display);
+        screenHeight = GetMonitorHeight(display);
+
+        SetWindowSize(screenWidth, screenHeight );
         ToggleFullscreen();
     }
     else {
         SetWindowSize(screenWidth, screenHeight);
     }   
-}
-
-void DrawCurrentScreen(GameScreen currentGameScreen) {
-    switch (currentGameScreen)
-    {
-    case LOGO:
-    {
-        // TODO: Draw LOGO screen here!
-        DrawText("LOGO SCREEN", 20, 20, 40, LIGHTGRAY);
-        DrawText("WAIT for 2 SECONDS...", 290, 220, 20, GRAY);
-
-    } break;
-    case TITLE:
-    {
-        // TODO: Draw TITLE screen here!
-        DrawRectangle(0, 0, screenWidth, screenHeight, GREEN);
-        DrawText("TITLE SCREEN", 20, 20, 40, DARKGREEN);
-        DrawText("PRESS ENTER or TAP to JUMP to GAMEPLAY SCREEN", 120, 220, 20, DARKGREEN);
-
-    } break;
-    case GAMEPLAY:
-    {
-        // TODO: Draw GAMEPLAY screen here!
-        DrawRectangle(0, 0, screenWidth, screenHeight, PURPLE);
-        DrawText("GAMEPLAY SCREEN", 20, 20, 40, MAROON);
-        DrawText("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, MAROON);
-
-    } break;
-    case ENDING:
-    {
-        // TODO: Draw ENDING screen here!
-        DrawRectangle(0, 0, screenWidth, screenHeight, BLUE);
-        DrawText("ENDING SCREEN", 20, 20, 40, DARKBLUE);
-        DrawText("PRESS ENTER or TAP to RETURN to TITLE SCREEN", 120, 220, 20, DARKBLUE);
-
-    } break;
-    default: break;
-    }
 }
 
 void DetermineGameScreen() {
@@ -98,9 +78,9 @@ void DetermineGameScreen() {
     }break;
     case TITLE:
     {
-        if (IsKeyPressed(KEY_ENTER)) {
-            currentScreen = GAMEPLAY;
-        }
+        
+            currentScreen = GAMEMENU;
+        
     }break;
     default:break;
     }
@@ -116,22 +96,28 @@ void DrawCurrentScreen() {
     {
         // TODO: Draw LOGO screen here!
         DrawText("Scorched Earth: Redux!", screenCenterWidth, screenCenterHeight, 40, BLACK);
-        DrawText("WAIT for 2 SECONDS...", screenCenterWidth, screenCenterHeight + 50, 20, GRAY);
-
     } break;
     case TITLE:
     {
         DrawText("SCORCHED EARTH!", screenCenterWidth, screenCenterHeight, 40, BLACK);
-        DrawText("PRESS ENTER or TAP to JUMP to GAMEPLAY SCREEN", screenCenterWidth, screenCenterHeight + 50, 20, BLACK);
+        DrawText("PRESS ENTER to start", screenCenterWidth, screenCenterHeight + 50, 20, BLACK);
 
     } break;
+    case GAMEMENU:
+    {
+        int menuWidth = 600;
+        int menuHeight = 500;
+        int menuXPosition = (screenWidth / 2) - (menuWidth / 2);
+        int menuYPosition = (screenHeight / 2) - (menuHeight / 2);
+
+        DrawRectangle(menuXPosition, menuYPosition, menuWidth, menuHeight, GRAY);
+        DrawText("This is a game menu?", menuXPosition + 50, menuYPosition + 50, 20, BLACK);
+    }break;
     case GAMEPLAY:
     {
         // TODO: Draw GAMEPLAY screen here!
-        DrawRectangle(0, 0, screenWidth, screenHeight, PURPLE);
-        DrawText("GAMEPLAY SCREEN", 20, 20, 40, MAROON);
-        DrawText("PRESS ENTER or TAP to JUMP to ENDING SCREEN", 130, 220, 20, MAROON);
-
+        DrawRectangle(0, 0, screenWidth, screenHeight, LIGHTGRAY);
+        DrawText("GAMEPLAY SCREEN", 20, 20, 40, BLACK);
     } break;
     case ENDING:
     {
@@ -155,6 +141,8 @@ void WriteMessageToScreen(const char* messageText, int xPosition, int yPosition)
 int main(void)
 {
     //Initialize game engine with default values
+    //These should eventually be loaded into the game engine
+    //from a settings file / db
     GameEngine engine = GameEngine::GameEngine();
     screenWidth = engine.defaultScreenWidth;
     screenHeight = engine.defaultScreenWidth;
@@ -166,17 +154,19 @@ int main(void)
     SetWindowSize(&engine.gameTitle);
     SetTargetFPS(engine.targetFPS);               // Set our game to run at 60 frames-per-second
 
-    
-
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        
+        if (DEBUG_MODE) {
+            displayDebugInformation();
+        }
+
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
 
         ClearBackground(LIGHTGRAY);
+        
         DetermineGameScreen();
         DrawCurrentScreen();
 

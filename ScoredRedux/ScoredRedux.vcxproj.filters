@@ -16,6 +16,9 @@
     <Filter Include="Source Files\GameEntities">
       <UniqueIdentifier>{fa259a4e-8251-4fdd-be91-9b4570c869af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Gui">
+      <UniqueIdentifier>{3cc16652-c56e-44f6-8b4a-e1dc23348e03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ScoredRedux.cpp">
@@ -27,12 +30,18 @@
     <ClCompile Include="GameEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MenuBase.cpp">
+      <Filter>Source Files\Gui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

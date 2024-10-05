@@ -132,11 +132,13 @@
   <ItemGroup>
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="MenuBase.cpp" />
     <ClCompile Include="ScoredRedux.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="MenuBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
