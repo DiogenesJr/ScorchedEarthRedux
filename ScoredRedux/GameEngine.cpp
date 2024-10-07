@@ -6,8 +6,8 @@ GameEngine::GameEngine() {
 	vector<GameObject> gameObjects;
 	this->gameObjects = gameObjects;
 
-	this->defaultScreenWidth = 800;
-	this->defaultScreenHeight = 450;
+	this->defaultScreenWidth = 1024;
+	this->defaultScreenHeight = 768;
 
 	this->gameTitle = "Scorched Earth: Redux";
 	this->isFullScreen = true;

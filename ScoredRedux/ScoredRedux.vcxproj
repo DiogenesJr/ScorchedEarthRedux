@@ -24,6 +24,7 @@
     <ProjectGuid>{d22f91c3-67f8-4a45-a10d-1a4938cbc4f5}</ProjectGuid>
     <RootNamespace>ScoredRedux</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>ScorchedEarthRedux</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -132,13 +133,108 @@
   <ItemGroup>
     <ClCompile Include="GameEngine.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="MenuBase.cpp" />
+    <ClCompile Include="ResourceLoader.cpp" />
     <ClCompile Include="ScoredRedux.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="MenuBase.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="ResourceLoader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="svg1.bin" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\arrow_basic_e.png" />
+    <Image Include="..\Resources\arrow_basic_e_small.png" />
+    <Image Include="..\Resources\arrow_basic_n.png" />
+    <Image Include="..\Resources\arrow_basic_n_small.png" />
+    <Image Include="..\Resources\arrow_basic_s.png" />
+    <Image Include="..\Resources\arrow_basic_s_small.png" />
+    <Image Include="..\Resources\arrow_basic_w.png" />
+    <Image Include="..\Resources\arrow_basic_w_small.png" />
+    <Image Include="..\Resources\arrow_decorative_e.png" />
+    <Image Include="..\Resources\arrow_decorative_e_small.png" />
+    <Image Include="..\Resources\arrow_decorative_n.png" />
+    <Image Include="..\Resources\arrow_decorative_n_small.png" />
+    <Image Include="..\Resources\arrow_decorative_s.png" />
+    <Image Include="..\Resources\arrow_decorative_s_small.png" />
+    <Image Include="..\Resources\arrow_decorative_w.png" />
+    <Image Include="..\Resources\arrow_decorative_w_small.png" />
+    <Image Include="..\Resources\button_rectangle_border.png" />
+    <Image Include="..\Resources\button_rectangle_depth_border.png" />
+    <Image Include="..\Resources\button_rectangle_depth_flat.png" />
+    <Image Include="..\Resources\button_rectangle_depth_gloss.png" />
+    <Image Include="..\Resources\button_rectangle_depth_gradient.png" />
+    <Image Include="..\Resources\button_rectangle_depth_line.png" />
+    <Image Include="..\Resources\button_rectangle_flat.png" />
+    <Image Include="..\Resources\button_rectangle_gloss.png" />
+    <Image Include="..\Resources\button_rectangle_gradient.png" />
+    <Image Include="..\Resources\button_rectangle_line.png" />
+    <Image Include="..\Resources\button_round_border.png" />
+    <Image Include="..\Resources\button_round_depth_border.png" />
+    <Image Include="..\Resources\button_round_depth_flat.png" />
+    <Image Include="..\Resources\button_round_depth_gloss.png" />
+    <Image Include="..\Resources\button_round_depth_gradient.png" />
+    <Image Include="..\Resources\button_round_depth_line.png" />
+    <Image Include="..\Resources\button_round_flat.png" />
+    <Image Include="..\Resources\button_round_gloss.png" />
+    <Image Include="..\Resources\button_round_gradient.png" />
+    <Image Include="..\Resources\button_round_line.png" />
+    <Image Include="..\Resources\button_square_border.png" />
+    <Image Include="..\Resources\button_square_depth_border.png" />
+    <Image Include="..\Resources\button_square_depth_flat.png" />
+    <Image Include="..\Resources\button_square_depth_gloss.png" />
+    <Image Include="..\Resources\button_square_depth_gradient.png" />
+    <Image Include="..\Resources\button_square_depth_line.png" />
+    <Image Include="..\Resources\button_square_flat.png" />
+    <Image Include="..\Resources\button_square_gloss.png" />
+    <Image Include="..\Resources\button_square_gradient.png" />
+    <Image Include="..\Resources\button_square_line.png" />
+    <Image Include="..\Resources\check_round_color.png" />
+    <Image Include="..\Resources\check_round_grey.png" />
+    <Image Include="..\Resources\check_round_grey_circle.png" />
+    <Image Include="..\Resources\check_round_round_circle.png" />
+    <Image Include="..\Resources\check_square_color.png" />
+    <Image Include="..\Resources\check_square_color_checkmark.png" />
+    <Image Include="..\Resources\check_square_color_cross.png" />
+    <Image Include="..\Resources\check_square_color_square.png" />
+    <Image Include="..\Resources\check_square_grey.png" />
+    <Image Include="..\Resources\check_square_grey_checkmark.png" />
+    <Image Include="..\Resources\check_square_grey_cross.png" />
+    <Image Include="..\Resources\check_square_grey_square.png" />
+    <Image Include="..\Resources\icon_checkmark.png" />
+    <Image Include="..\Resources\icon_circle.png" />
+    <Image Include="..\Resources\icon_cross.png" />
+    <Image Include="..\Resources\icon_outline_checkmark.png" />
+    <Image Include="..\Resources\icon_outline_circle.png" />
+    <Image Include="..\Resources\icon_outline_cross.png" />
+    <Image Include="..\Resources\icon_outline_square.png" />
+    <Image Include="..\Resources\icon_square.png" />
+    <Image Include="..\Resources\slide_hangle.png" />
+    <Image Include="..\Resources\slide_horizontal_color.png" />
+    <Image Include="..\Resources\slide_horizontal_color_section.png" />
+    <Image Include="..\Resources\slide_horizontal_color_section_wide.png" />
+    <Image Include="..\Resources\slide_horizontal_grey.png" />
+    <Image Include="..\Resources\slide_horizontal_grey_section.png" />
+    <Image Include="..\Resources\slide_horizontal_grey_section_wide.png" />
+    <Image Include="..\Resources\slide_vertical_color.png" />
+    <Image Include="..\Resources\slide_vertical_color_section.png" />
+    <Image Include="..\Resources\slide_vertical_color_section_wide.png" />
+    <Image Include="..\Resources\slide_vertical_grey.png" />
+    <Image Include="..\Resources\slide_vertical_grey_section.png" />
+    <Image Include="..\Resources\slide_vertical_grey_section_wide.png" />
+    <Image Include="..\Resources\star.png" />
+    <Image Include="..\Resources\star_outline.png" />
+    <Image Include="..\Resources\star_outline_depth.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

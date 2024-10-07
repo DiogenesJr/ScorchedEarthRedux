@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Gui">
       <UniqueIdentifier>{3cc16652-c56e-44f6-8b4a-e1dc23348e03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Images">
+      <UniqueIdentifier>{0b64d428-991f-4c6a-8a44-46edcabc9001}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ScoredRedux.cpp">
@@ -33,6 +36,12 @@
     <ClCompile Include="MenuBase.cpp">
       <Filter>Source Files\Gui</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Source Files\Gui</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameObject.h">
@@ -44,5 +53,272 @@
     <ClInclude Include="MenuBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="svg1.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resources\arrow_basic_e.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_basic_e_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_basic_n.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_basic_n_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_basic_s.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_basic_s_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_basic_w.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_basic_w_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_e.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_e_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_n.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_n_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_s.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_s_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_w.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\arrow_decorative_w_small.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_border.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_depth_border.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_depth_flat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_depth_gloss.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_depth_gradient.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_depth_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_flat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_gloss.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_gradient.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_rectangle_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_border.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_depth_border.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_depth_flat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_depth_gloss.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_depth_gradient.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_depth_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_flat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_gloss.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_gradient.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_round_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_border.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_depth_border.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_depth_flat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_depth_gloss.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_depth_gradient.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_depth_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_flat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_gloss.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_gradient.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\button_square_line.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_round_color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_round_grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_round_grey_circle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_round_round_circle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_color_checkmark.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_color_cross.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_color_square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_grey_checkmark.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_grey_cross.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\check_square_grey_square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_checkmark.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_circle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_cross.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_outline_checkmark.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_outline_circle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_outline_cross.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_outline_square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\icon_square.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_hangle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_horizontal_color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_horizontal_color_section.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_horizontal_color_section_wide.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_horizontal_grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_horizontal_grey_section.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_horizontal_grey_section_wide.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_vertical_color.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_vertical_color_section.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_vertical_color_section_wide.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_vertical_grey.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_vertical_grey_section.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\slide_vertical_grey_section_wide.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\star.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\star_outline.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\Resources\star_outline_depth.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

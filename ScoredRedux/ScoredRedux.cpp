@@ -1,35 +1,17 @@
-/*******************************************************************************************
-*
-*   raylib [core] example - Basic window
-*
-*   Welcome to raylib!
-*
-*   To test examples, just press F6 and execute raylib_compile_execute script
-*   Note that compiled executable is placed in the same folder as .c file
-*
-*   You can find all basic examples on C:\raylib\raylib\examples folder or
-*   raylib official webpage: www.raylib.com
-*
-*   Enjoy using raylib. :)
-*
-*   Example originally created with raylib 1.0, last time updated with raylib 1.0
-*
-*   Example licensed under an unmodified zlib/libpng license, which is an OSI-certified,
-*   BSD-like license that allows static linking with closed source software
-*
-*   Copyright (c) 2013-2024 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
-
-#include "raylib.h"
+#include <raylib.h>
+#include <vector>
 #include "GameEngine.h"
+#include "ResourceLoader.h"
+#include "resource.h"
 
 #define DEBUG_MODE true
 
 typedef enum GameScreen {LOGO = 0, TITLE, GAMEMENU,GAMEPLAY, ENDING} GameScreen;
+
 int screenWidth, screenHeight;
 int frameCounter = 0;
-bool isFullScreen;
+
+bool isFullScreen, gameMenuCreated;
 GameScreen currentScreen;
 
 //------------------------------------------------------------------------------------
@@ -37,12 +19,50 @@ GameScreen currentScreen;
 //------------------------------------------------------------------------------------
 void displayDebugInformation() {
     Vector2 mousePosition = GetMousePosition();
+    
     string mouseXPosition = to_string(mousePosition.x);
     string mouseYPosition = to_string(mousePosition.y);
     string mousePositionString = "(" + mouseXPosition + "," + mouseYPosition + ")";
     string screenDimensionStrings = "(" + to_string(screenWidth) + "," + to_string(screenHeight) + ")";
+
     DrawText(mousePositionString.data(), 20, 20, 40, DARKBLUE);
     DrawText(screenDimensionStrings.data(), 20, 60, 40, DARKBLUE);
+}
+
+//------------------------------------------------------------------------------------
+// Draw the menu that will be available during the main gameplay loop
+//------------------------------------------------------------------------------------
+void drawGamePlayMenu() {
+    int menuWidth = 600;
+    int menuHeight = screenHeight;
+
+    float xPosition = screenWidth - menuWidth;
+    float yPosition = 0.0;
+
+    //Draw main game play menu area
+    Rectangle menuRectangle = { xPosition, yPosition, menuWidth, menuHeight };
+    Vector2 menuPosition = { xPosition, yPosition };
+
+    //Load menu background texture
+    int menuBackgroundResourceSize = 0;
+    unsigned char* pngMenuBackground = LoadPNGResource(IDB_PNG19, &menuBackgroundResourceSize);
+
+    Image menuBackground = LoadImageFromMemory(".png", pngMenuBackground, menuBackgroundResourceSize);
+    Texture2D menuBackgroundTexture = LoadTextureFromImage(menuBackground);
+    UnloadImage(menuBackground);
+
+    Rectangle destRect = { xPosition, yPosition, menuWidth, menuHeight };
+
+    //DrawTexture(menuBackgroundTexture, xPosition, yPosition, WHITE);
+    DrawTexturePro(
+        menuBackgroundTexture,
+        Rectangle{ xPosition, yPosition, (float)menuBackgroundTexture.width, (float)menuBackgroundTexture.height },
+        destRect,
+        Vector2{ xPosition, yPosition },
+        0.0f,
+        WHITE
+    );
+    //*********************
 }
 
 //------------------------------------------------------------------------------------
@@ -71,16 +91,14 @@ void DetermineGameScreen() {
     case LOGO:
     {
         frameCounter++;
-        if (frameCounter > 120) {
+        if (frameCounter > 240) {
             currentScreen = TITLE;
             frameCounter = 0;
         }
     }break;
     case TITLE:
     {
-        
-            currentScreen = GAMEMENU;
-        
+        currentScreen = GAMEMENU;        
     }break;
     default:break;
     }
@@ -117,6 +135,9 @@ void DrawCurrentScreen() {
     {
         // TODO: Draw GAMEPLAY screen here!
         DrawRectangle(0, 0, screenWidth, screenHeight, LIGHTGRAY);
+        
+        drawGamePlayMenu();
+           
         DrawText("GAMEPLAY SCREEN", 20, 20, 40, BLACK);
     } break;
     case ENDING:
@@ -147,7 +168,8 @@ int main(void)
     screenWidth = engine.defaultScreenWidth;
     screenHeight = engine.defaultScreenWidth;
     isFullScreen = engine.isFullScreen;
-    currentScreen = LOGO;
+    currentScreen = GAMEPLAY;//TODO: This just puts us straight into the game view so we can work with menus
+    gameMenuCreated = false;
 
     //Initializing window.  Going full screen for now.
     //TODO: Make this a setting / configurable

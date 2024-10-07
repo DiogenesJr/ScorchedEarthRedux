@@ -1,2 +1,12 @@
-﻿  ScoredRedux.cpp
-  ScoredRedux.vcxproj -> C:\Users\daabr\source\repos\ScorchedEarthRedux\x64\Debug\ScoredRedux.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(531,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (ScoredRedux.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  ScoredRedux.cpp
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(39,21): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(43,55): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(43,55): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(43,66): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(43,66): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(54,50): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(54,50): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(54,61): warning C4838: conversion from 'int' to 'float' requires a narrowing conversion
+C:\Users\daabr\source\repos\ScorchedEarthRedux\ScoredRedux\ScoredRedux.cpp(54,61): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  ScoredRedux.vcxproj -> C:\Users\daabr\source\repos\ScorchedEarthRedux\x64\Debug\ScorchedEarthRedux.exe
